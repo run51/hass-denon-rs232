@@ -1,0 +1,22 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Denon RS-232",
+        "description": "Address of the serial-to-IP bridge wired to the Denon RS-232 port. Unfolded Circle Dock 3: external port 2 = TCP 5000 (enable \"RS232 TCP server\" in the dock's web interface).",
+        "data": {
+          "name": "Name",
+          "host": "Bridge IP address",
+          "port": "TCP port"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot reach the bridge at this address and port.",
+      "no_response": "The bridge is reachable but the Denon does not answer PW? (check the cable, the dock port mode RS232 9600 8N1, or swap Tip/Ring)."
+    },
+    "abort": {
+      "already_configured": "This bridge is already configured."
+    }
+  }
+}

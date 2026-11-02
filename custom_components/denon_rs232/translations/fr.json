@@ -1,0 +1,22 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Denon RS-232",
+        "description": "Adresse de la passerelle série-vers-IP reliée au port RS-232 du Denon. Dock 3 Unfolded Circle : port externe 2 = TCP 5000 (activer « RS232 TCP server » dans l'interface web du dock).",
+        "data": {
+          "name": "Nom",
+          "host": "Adresse IP de la passerelle",
+          "port": "Port TCP"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Impossible de joindre la passerelle à cette adresse et ce port.",
+      "no_response": "La passerelle répond mais le Denon ne répond pas à PW? (vérifier le câble, le port du dock en RS232 9600 8N1, ou inverser Tip/Ring)."
+    },
+    "abort": {
+      "already_configured": "Cette passerelle est déjà configurée."
+    }
+  }
+}
