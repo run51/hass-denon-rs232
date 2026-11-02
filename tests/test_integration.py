@@ -71,7 +71,7 @@ async def test_entities_and_commands(hass: HomeAssistant, denon_sim) -> None:
 
     # Channel trims come from the CV? query sent at connection
     await _wait(lambda: _state(hass, "number.denon_front_l_trim") == "-9.5")
-    assert _state(hass, "number.denon_subwoofer_3_trim") == "0.0"
+    assert _state(hass, "number.denon_subwoofer_2_trim") == "0.0"
 
     # Set a trim
     await hass.services.async_call(

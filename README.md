@@ -21,7 +21,7 @@ the sister project [uc-integration-denon-rs232](https://github.com/run51/uc-inte
 | Type | Entities |
 |---|---|
 | Media player | Power, volume, mute, source, sound mode |
-| Number | Master volume (dB); **channel level trims** −12…+12 dB: FL, C, FR, SL, SR, SBL, SBR, SW1, SW2, SW3 (SB, front height/wide and transducer available, disabled by default) |
+| Number | Master volume (dB); **channel level trims** −12…+12 dB: FL, C, FR, SL, SR, SBL, SBR, SW1, SW2 (SW3, SB, front height/wide and transducer available, disabled by default) |
 | Select | Source, surround mode, input mode, quick select, Room EQ, Dynamic EQ, Dynamic Volume, Reference Level, audio restorer (+ DSX, PLIIz gain, PL mode, DRC, D.COMP, zone sources, disabled by default) |
 | Switch | Power, mute, Cinema EQ, Tone Defeat (+ PLIIz height, main zone, zones 2/3/4, disabled by default) |
 | Button | Volume up / down, Quick 1 / 2 / 3 |

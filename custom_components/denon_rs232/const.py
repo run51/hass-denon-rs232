@@ -20,6 +20,7 @@ BACKOFF_MAX_S = 60.0
 VALIDATE_TIMEOUT_S = 4.0
 
 # Channel trims exposed as number entities, in display order.
-# Enabled by default: the channels of a typical 7.x setup.
-MAIN_CHANNELS = ("FL", "C", "FR", "SL", "SR", "SBL", "SBR", "SW1", "SW2", "SW3")
-EXTRA_CHANNELS = ("SB", "FHL", "FHR", "FWL", "FWR", "TR")
+# Enabled by default: the channels of a typical 7.2 setup.
+# SW3 only exists with the "3SP" subwoofer settings: the unit does not report it otherwise.
+MAIN_CHANNELS = ("FL", "C", "FR", "SL", "SR", "SBL", "SBR", "SW1", "SW2")
+EXTRA_CHANNELS = ("SW3", "SB", "FHL", "FHR", "FWL", "FWR", "TR")
