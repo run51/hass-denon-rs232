@@ -1,0 +1,35 @@
+# Creates a GitHub release (used by HACS) when a version tag is pushed.
+name: Release
+
+"on":
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check manifest version matches the tag
+        run: |
+          TAG="${GITHUB_REF#refs/tags/v}"
+          VER="$(jq -r .version custom_components/denon_rs232/manifest.json)"
+          echo "tag=$TAG manifest=$VER"
+          [ "$TAG" = "$VER" ]
+
+      - name: Extract changelog
+        run: |
+          VERSION="${GITHUB_REF#refs/tags/v}"
+          awk "/^## v?${VERSION}/{found=1; next} found && /^## /{exit} found{print}" CHANGELOG.md > notes.md
+          [ -s notes.md ] || echo "See CHANGELOG.md" > notes.md
+
+      - uses: ncipollo/release-action@v1
+        with:
+          bodyFile: notes.md
+          prerelease: ${{ contains(github.ref_name, 'test') }}
+          makeLatest: ${{ contains(github.ref_name, 'test') && 'false' || 'true' }}
