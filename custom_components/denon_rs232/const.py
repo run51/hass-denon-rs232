@@ -11,6 +11,8 @@ DEFAULT_NAME = "Denon"
 
 # Safety refresh while connected (the unit pushes every change on its own).
 POLL_INTERVAL_S = 30.0
+# Link considered dead after this long without any line from the unit.
+STALE_LINK_S = 2 * POLL_INTERVAL_S + 15
 # Coalesce bursts of events (MVUP reports old + new value, power-on bursts…).
 UPDATE_DEBOUNCE_S = 0.08
 # Reconnection backoff.

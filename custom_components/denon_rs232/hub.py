@@ -12,6 +12,7 @@ from .const import (
     BACKOFF_MAX_S,
     BACKOFF_MIN_S,
     POLL_INTERVAL_S,
+    STALE_LINK_S,
     UPDATE_DEBOUNCE_S,
     VALIDATE_TIMEOUT_S,
 )
@@ -78,6 +79,10 @@ class DenonHub:
                     try:
                         await asyncio.wait_for(self.client.wait_closed(), timeout=POLL_INTERVAL_S)
                     except TimeoutError:
+                        if self.client.seconds_since_rx > STALE_LINK_S:
+                            # The unit always answers PW?: a silent link is dead (half-open TCP).
+                            _LOG.warning("No data for %.0f s, reconnecting", self.client.seconds_since_rx)
+                            break
                         await self.client.query_status()
             except asyncio.CancelledError:
                 raise
