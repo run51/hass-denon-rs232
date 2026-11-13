@@ -139,11 +139,3 @@ def test_audio_format() -> None:
     assert audio_format("STEREO") == "PCM / Analog"
     assert audio_format(None) is None
 
-
-def test_decoding_names() -> None:
-    from custom_components.denon_rs232.denon_control.const import decoding_label
-
-    assert decoding_label("DOLBY HD") == "Dolby TrueHD"
-    assert decoding_label("DTS HD MSTR") == "DTS-HD MA"
-    assert decoding_label("DOLBY PL2 C") == "Pro Logic II"
-    assert decoding_label("STEREO") == "Stereo"

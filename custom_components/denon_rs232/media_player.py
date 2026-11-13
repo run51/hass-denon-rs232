@@ -12,7 +12,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 
 from . import DenonConfigEntry
-from .denon_control.const import SOURCES, SURROUND_MODES, VOLUME_MIN_DB, decoding_label
+from .denon_control.const import SOURCES, SURROUND_MODES, VOLUME_MIN_DB
 from .entity import DenonEntity, code_for
 
 # Volume span used for the 0..1 volume level: -80 dB .. +18 dB.
@@ -74,7 +74,7 @@ class DenonMediaPlayer(DenonEntity, MediaPlayerEntity):
     @property
     def sound_mode(self) -> str | None:
         code = self.denon.surround
-        return decoding_label(code) if code else None
+        return SURROUND_MODES.get(code, code.title()) if code else None
 
     @property
     def extra_state_attributes(self) -> dict[str, float | str | None]:

@@ -7,9 +7,8 @@ Protocol library aligned with the Remote 3 integration v0.1.12.
 - A link that stays silent for more than 75 s (half-open TCP connection, bridge rebooted…)
   is detected and rebuilt: the unit always answers the 30 s `PW?` poll.
 - Writes to the bridge time out after 5 s instead of waiting forever.
-- Short names for what the unit reports it decodes, in the surround mode sensor and the
-  media player sound mode: "Dolby TrueHD" instead of "DOLBY HD", "DTS-HD MA" instead of
-  "DTS HD MSTR", "Pro Logic II" instead of "DOLBY PL2 C"…
+- Surround mode names stay the full names reported by the unit (the short names of the
+  Remote integration are made for its small sensor tiles).
 
 ## v0.1.0
 
