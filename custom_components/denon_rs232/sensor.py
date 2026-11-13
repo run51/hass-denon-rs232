@@ -11,7 +11,7 @@ from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 
 from . import DenonConfigEntry
 from .denon_control import DenonState
-from .denon_control.const import INPUT_MODES, SOURCES, SURROUND_MODES
+from .denon_control.const import INPUT_MODES, SOURCES, decoding_label
 from .entity import DenonEntity
 
 
@@ -73,7 +73,7 @@ SENSORS: tuple[SensorDef, ...] = (
     SensorDef(key="current_source", name="Current source", icon="mdi:import",
               value=lambda st: _label(SOURCES, st.source)),
     SensorDef(key="current_surround", name="Current surround mode", icon="mdi:surround-sound",
-              value=lambda st: _label(SURROUND_MODES, st.surround)),
+              value=lambda st: decoding_label(st.surround) if st.surround else None),
     SensorDef(key="current_input_mode", name="Current input mode", icon="mdi:video-input-hdmi",
               value=lambda st: _label(INPUT_MODES, st.input_mode)),
     SensorDef(key="audio_format", name="Audio format", icon="mdi:waveform",
